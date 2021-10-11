@@ -22,33 +22,27 @@ namespace projectPractice2
         {
 
             string conString = "server=ws265660ProjectPractice.remote.ac;user = WS265660_Admin;database = WS265660_ProjectPractice;password =?Ja6g8j9;CharSet=utf8;SslMode=none;";
+            string result = "";
             MySqlConnection cnn = new MySqlConnection(conString);
-            string command = "SELECT `fname` FROM `t_users` WHERE `ID` = 1";
             string loginCommand = "SELECT * FROM `t_users` WHERE `password` = " + txtPassword.Text;
             MySqlCommand myCom = new MySqlCommand(command, cnn);
             try
             {
                 cnn.Open();
                 Console.WriteLine("Database Connected!");
-                MessageBox.Show(myCom.ExecuteScalar().ToString());
+                result = myCom.ExecuteNonQuery().ToString();
                 cnn.Close();
             }
             catch (Exception ex)
             {
-                Console.WriteLine("An errot has occured \n" + ex);
+                Console.WriteLine("An errot has occured. \n" + ex);
             }
-/*            string username = txtUsername.Text;
-            string password = txtPassword.Text;
 
-            if (username == "Gamer")
+            if (result == "-1")
             {
-                if (password == "Chad")
-                {
-                    MessageBox.Show("You have logged in");
-                }
-                else { MessageBox.Show("Password is incorrect."); }
+            MessageBox.Show("You have logged in");
             }
-            else { MessageBox.Show("Login details are incorrect."); }*/
+            else { MessageBox.Show("Login details are incorrect."); }
         }
     }
 }
