@@ -20,18 +20,27 @@ namespace projectPractice2
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            String constring = "jeff";
-            //MySqlConnection cnn = new MySqlConnection(constring);
-            String username = txtUsername.Text;
-            String password = txtPassword.Text;
 
-            if (username == "Gamer")
+            string conString = "server=ws265660ProjectPractice.remote.ac;user = WS265660_Admin;database = WS265660_ProjectPractice;password =?Ja6g8j9;CharSet=utf8;SslMode=none;";
+            string result = "";
+            MySqlConnection cnn = new MySqlConnection(conString);
+            string loginCommand = "SELECT * FROM `t_users` WHERE `password` = " + txtPassword.Text;
+            MySqlCommand myCom = new MySqlCommand(loginCommand, cnn);
+            try
             {
-                if (password == "Chad")
-                {
-                    MessageBox.Show("You have logged in");
-                }
-                else { MessageBox.Show("Password is incorrect."); }
+                cnn.Open();
+                Console.WriteLine("Database Connected!");
+                result = myCom.ExecuteNonQuery().ToString();
+                cnn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An errot has occured. \n" + ex);
+            }
+
+            if (result == "-1")
+            {
+            MessageBox.Show("You have logged in");
             }
             else { MessageBox.Show("Login details are incorrect."); }
         }
