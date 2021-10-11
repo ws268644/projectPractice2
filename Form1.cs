@@ -30,7 +30,7 @@ namespace projectPractice2
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            String conString = "server=ws265660ProjectPractice.remote.ac;user = Admin;database = WS265660_ProjectPractice;password =Ja6g8j9;CharSet=utf8;SslMode=none;";
+            String conString = "server=ws265660ProjectPractice.remote.ac;user = WS265660_Admin;database = WS265660_ProjectPractice;password =?Ja6g8j9;CharSet=utf8;SslMode=none;";
             MySqlConnection cnn = new MySqlConnection(conString); 
             try {
                 cnn.Open();

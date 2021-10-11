@@ -20,8 +20,20 @@ namespace projectPractice2
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            
-            //MySqlConnection cnn = new MySqlConnection(constring);
+
+            String conString = "server=ws265660ProjectPractice.remote.ac;user = WS265660_Admin;database = WS265660_ProjectPractice;password =?Ja6g8j9;CharSet=utf8;SslMode=none;";
+            MySqlConnection cnn = new MySqlConnection(conString);
+            try
+            {
+                cnn.Open();
+                Console.WriteLine("Database Connected!");
+
+                cnn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An errot has occured \n" + ex);
+            }
             String username = txtUsername.Text;
             String password = txtPassword.Text;
 
