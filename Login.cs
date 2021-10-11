@@ -24,8 +24,9 @@ namespace projectPractice2
             string conString = "server=ws265660ProjectPractice.remote.ac;user = WS265660_Admin;database = WS265660_ProjectPractice;password =?Ja6g8j9;CharSet=utf8;SslMode=none;";
             string result = "";
             MySqlConnection cnn = new MySqlConnection(conString);
-            string loginCommand = "SELECT * FROM `t_users` WHERE `password` = " + txtPassword.Text;
-            MySqlCommand myCom = new MySqlCommand(loginCommand, cnn);
+            string usernameCommand = "SELECT * FROM `t_users` WHERE `email` = " + txtUsername.Text;
+            string passwordCommand = "SELECT * FROM `t_users` WHERE `password` = " + txtPassword.Text;
+            MySqlCommand myCom = new MySqlCommand(usernameCommand, cnn);
             try
             {
                 cnn.Open();
