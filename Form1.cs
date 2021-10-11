@@ -30,7 +30,8 @@ namespace projectPractice2
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            string conString = "server=ws265660ProjectPractice.remote.ac;user = Admin;database = WS265660_ProjectPractice;password =Ja6g8j9;CharSet=utf8;";
+            String conString = "server=ws265660ProjectPractice.remote.ac;user = Admin;database = WS265660_ProjectPractice;password =Ja6g8j9;CharSet=utf8;";
+            MySqlConnection cnn = new MySqlConnection(conString);
         }
     }
 }
