@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace projectPractice2
 {
-    public partial class Form1 : Form
+    public partial class frmHomepage : Form
     {
-        public Form1()
+        public frmHomepage()
         {
             InitializeComponent();
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            var frm = new frmLogin();
+            frm.Location = this.Location;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.FormClosing += delegate { this.Show(); };
+            frm.Show();
+            this.Hide();
         }
     }
 }
