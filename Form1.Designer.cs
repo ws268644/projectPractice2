@@ -84,7 +84,6 @@ namespace projectPractice2
             this.Controls.Add(this.btnLogin);
             this.Name = "frmHomepage";
             this.Text = "Home";
-            this.Load += new System.EventHandler(this.frmHomepage_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
