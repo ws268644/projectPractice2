@@ -25,7 +25,7 @@ namespace projectPractice2
             string result = "";
             MySqlConnection cnn = new MySqlConnection(conString);
             string loginCommand = "SELECT * FROM `t_users` WHERE `password` = " + txtPassword.Text;
-            MySqlCommand myCom = new MySqlCommand(command, cnn);
+            MySqlCommand myCom = new MySqlCommand(loginCommand, cnn);
             try
             {
                 cnn.Open();
