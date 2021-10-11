@@ -31,6 +31,8 @@ namespace projectPractice2
         {
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnCurrency = new System.Windows.Forms.Button();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.lblConnect = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -52,16 +54,39 @@ namespace projectPractice2
             this.btnCurrency.Text = "Currency Converter";
             this.btnCurrency.UseVisualStyleBackColor = true;
             // 
+            // btnConnect
+            // 
+            this.btnConnect.Location = new System.Drawing.Point(12, 25);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(75, 23);
+            this.btnConnect.TabIndex = 2;
+            this.btnConnect.Text = "Connect";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            // 
+            // lblConnect
+            // 
+            this.lblConnect.AutoSize = true;
+            this.lblConnect.Location = new System.Drawing.Point(9, 9);
+            this.lblConnect.Name = "lblConnect";
+            this.lblConnect.Size = new System.Drawing.Size(108, 13);
+            this.lblConnect.TabIndex = 3;
+            this.lblConnect.Text = "Connect to Database";
+            // 
             // frmHomepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblConnect);
+            this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.btnCurrency);
             this.Controls.Add(this.btnLogin);
             this.Name = "frmHomepage";
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.frmHomepage_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -69,6 +94,8 @@ namespace projectPractice2
 
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnCurrency;
+        private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.Label lblConnect;
     }
 }
 

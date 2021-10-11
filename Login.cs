@@ -20,7 +20,7 @@ namespace projectPractice2
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            String constring = "jeff";
+            
             //MySqlConnection cnn = new MySqlConnection(constring);
             String username = txtUsername.Text;
             String password = txtPassword.Text;
