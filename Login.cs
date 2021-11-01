@@ -45,5 +45,10 @@ namespace projectPractice2
             }
             else { MessageBox.Show("Login details are incorrect."); }
         }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

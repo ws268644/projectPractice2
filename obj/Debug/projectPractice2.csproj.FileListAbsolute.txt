@@ -32,3 +32,5 @@
 \\svr-wg-file01\WGstudenthome\WS268644\My Documents\UCW Year 3\Git\projectPractice2\obj\Debug\projectPractice2.frmHomepage.resources
 \\svr-wg-file01\WGstudenthome\WS268644\My Documents\UCW Year 3\Git\projectPractice2\obj\Debug\projectPractice2.frmLogin.resources
 \\svr-wg-file01\WGstudenthome\WS268644\My Documents\UCW Year 3\Git\projectPractice2\obj\Debug\projectPractice2.csproj.CopyComplete
+\\svr-wg-file01\WGstudenthome\WS268644\My Documents\UCW Year 3\Git\projectPractice2\obj\Debug\projectPractice2.frmMenu.resources
+\\svr-wg-file01\WGstudenthome\WS268644\My Documents\UCW Year 3\Git\projectPractice2\obj\Debug\projectPractice2.frmUserScoring.resources

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using projectPractice2.Classes;
 namespace projectPractice2
 {
     public partial class frmHomepage : Form
@@ -30,16 +31,62 @@ namespace projectPractice2
 
         private void btnConnect_Click(object sender, EventArgs e)
         {
-            String conString = "server=ws265660ProjectPractice.remote.ac;user = WS265660_Admin;database = WS265660_ProjectPractice;password =?Ja6g8j9;CharSet=utf8;SslMode=none;";
-            MySqlConnection cnn = new MySqlConnection(conString); 
-            try {
+            clsDatabase objDatabase = new clsDatabase();
+            MySqlConnection cnn = objDatabase.GetConnection();
+            string fname = objDatabase.GetFirstUsersName();
+            string sCommand = "SELECT * FROM `t_users` WHERE `id` = 1";
+            MySqlCommand mycom = new MySqlCommand(sCommand, cnn);
+
+            try
+            {
                 cnn.Open();
-                MessageBox.Show("Success!");
+                MySqlDataReader rdr = mycom.ExecuteReader();
+
+                while (rdr.Read()) 
+                {
+                    clsUser.id = rdr.GetInt32(0);
+                    clsUser.fname = rdr.GetString(1);
+                    clsUser.lname = rdr.GetString(2);
+                    clsUser.timestamp = rdr.GetString(5);
+                }
+
+
                 cnn.Close();
-            } 
-            catch (Exception ex) {
-                MessageBox.Show("Didn't work :< \n" + ex);
             }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show("It broke :<\n"+ ex.ToString());
+            }
+            lblFname.Text = clsUser.id.ToString();
+            lblLname.Text = clsUser.fname;
+            lblEmail.Text = clsUser.lname;
+            lblTimestamp.Text = clsUser.timestamp;
+        }
+
+        private void frmHomepage_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var frm = new frmMenu();
+            frm.Location = this.Location;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.FormClosing += delegate { this.Show(); };
+            frm.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var frm = new frmUserScoring();
+            frm.Location = this.Location;
+            frm.StartPosition = FormStartPosition.Manual;
+            frm.FormClosing += delegate { this.Show(); };
+            frm.Show();
+            this.Hide();
         }
     }
 }
